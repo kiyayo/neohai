@@ -1,0 +1,48 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+
+{%for entry in entries%}
+<div class="media">
+    <a href="{%url 'main:username' username=entry.user.username %}"> 
+    <img class="mr-3" src="{{entry.user.userprofile.avatar.url}}" alt="{{entry.user.username}}" title="{{entry.user.username}}" width="32" height="32"/>
+    </a>
+    <div class="media-body">
+    <a href="{%url 'main:keyword' keyword=entry.keyword %}">
+    <h2 class="title mt-0">{{entry.keyword}}</h2>
+    </a>
+    </div>
+    </div>
+{%if entry.keyword == None%}
+<font style="vertical-align: inherit;">{{entry.content}}</font>
+<div class="info">
+<span class="username">by <a href="{%url 'main:username' username=entry.user.username %}">{{entry.user.username}}</a> </span> <span class="timestamp"> <time datetime="{{entry.created_at}}">{{entry.created_at}} </time> </span>
+</div>
+{%else%}
+<a href="{%url 'main:keyword' keyword=entry.keyword %}">
+    <h2 class="title">{{entry.keyword}}</h2>
+    </a>
+    <font style="vertical-align: inherit;">{{entry.content}}</font>
+    <div class="info">
+    <span class="username">by <a href="{%url 'main:username' username=entry.user.username %}">{{entry.user.username}}</a> </span> <span class="timestamp"> <time datetime="{{entry.created_at}}">{{entry.created_at}} </time> </span>
+    </div>
+    {%endif%}
+{%endfor%}
+<div class="pagination">
+    <span class="step-links">
+        {% if entries.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ entries.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ entries.number }} of {{ entries.paginator.num_pages }}.
+        </span>
+
+        {% if entries.has_next %}
+            <a href="?page={{ entries.next_page_number }}">next</a>
+            <a href="?page={{ entries.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

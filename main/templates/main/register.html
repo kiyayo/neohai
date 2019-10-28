@@ -1,0 +1,10 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+<form class="pure-form pure-form-aligned" method="POST" enctype="multipart/form-data">
+{%csrf_token %}
+{{form.as_p}}
+{{user_profile.as_p}}
+<button type="submit">Sign Up</button>
+</form>
+{% endblock %}

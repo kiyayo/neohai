@@ -1,0 +1,53 @@
+html {
+    scroll-behavior: smooth;
+}
+
+h1#boredom{
+  text-align:center;
+}
+
+h2#feedback{
+text-align: center;
+}
+
+h1#comment{
+  text-align: center;
+}
+ 
+h2.title {
+    color: #6c8ca5;
+    font-weight: bold;
+    margin: 0.1em 0 0.3em;
+}
+
+div.profile_image{
+    float:left;
+    width:66%;
+    height: 66%;
+    border: 1px solid #ccc;
+}
+
+body{
+  height:100%;
+  width:100%;
+  background-image:url(images/background.jpg);
+  background-repeat:no-repeat;  
+  background-size:cover;
+  color: antiquewhite;
+}
+
+div.info a {
+  color: #b36b85;
+  text-decoration: none;
+}
+
+
+
+.wrapper {
+  text-align : center;
+}
+.image, .form {
+  display: inline-block;
+  vertical-align: top;
+}
+
