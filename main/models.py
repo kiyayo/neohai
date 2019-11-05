@@ -4,7 +4,7 @@ from django.db import models
 from django.dispatch import receiver
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='avatars', blank=True)
     description = models.TextField(max_length=255, blank=True,null=True)
     
@@ -17,6 +17,11 @@ class Entry(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    stars = models.ManyToManyField(User,related_name='stars')
+
+    @property
+    def total_stars(self):
+        return self.stars.count()
 
     def __str__(self):
         return self.keyword
@@ -28,18 +33,15 @@ class Comment(models.Model):
     content = models.TextField()
     created_at =  models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-    return self.content
-
-
 class Star(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     entry = models.ForeignKey(Entry,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Gallery(models.Model):
-    image = models.ImageField(upload_to='gallery')
+    photo = models.ImageField(upload_to='gallery')
     timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     
 
 

@@ -4,7 +4,7 @@
 <a href="/profile/edit">Edit Profile</a>
 <h1>{{ user.username }}'s Profile</h1>
 <p>Userid: {{ user.id }}</p>
-<img class="pure-img" src="{{ user.userprofile.avatar.url }}" class="profile-image" alt ="{{user.username}}" title="{{user.username}}" width="64" height="64"/>
+<img src="{{ user.userprofile.avatar.url }}" class="profile-image" alt ="{{user.username}}" title="{{user.username}}" width="64" height="64"/>
 <p>First name : {{ user.first_name }}</p>
 <p>Last name: {{ user.last_name }}</p>
 <p>Email Address: {{ user.email }}</p>

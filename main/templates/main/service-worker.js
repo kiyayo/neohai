@@ -12,3 +12,6 @@ workbox.routing.registerRoute(
     new workbox.strategies.NetworkFirst()
   );
 
+workbox.routing.registerRoute(new RegExp('https:.*min\.(css|js)'),
+new workbox.strategies.NetworkFirst()
+);

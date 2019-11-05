@@ -1,4 +1,4 @@
-from  main.models import Entry, UserProfile,Comment
+from .models import Entry,Comment,Gallery,UserProfile
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm,TextInput,Textarea,FileInput
@@ -47,3 +47,12 @@ class FeedbackForm(forms.Form):
     subject = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
     
+
+class GalleryForm(ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ['photo']
+        widgets = {
+            'photo':FileInput(attrs={'class':'form-control-file'})
+        }
+        labels = {'photo':''}

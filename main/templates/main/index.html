@@ -32,6 +32,7 @@
 <a href="{%url 'main:keyword' keyword=entry.keyword %}">
 <h2 class="title mt-0">{{entry.keyword}}</h2>
 </a>
+<img id={{entry.pk}} onclick="addStar(this);" src="https://web.archive.org/web/20120623095725im_/http://s.hatena.ne.jp/images/add_gr.gif" tabindex="0" alt="Add Star" title="Add Star" class="hatena-star-add-button" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: none; vertical-align: middle;">
 </div>
 </div>
 <font style="vertical-align: inherit;">{{entry.content}}</font>
@@ -87,4 +88,4 @@
  <button class="btn btn-primary" type="submit">Post!</button>
  </form>
 </div>
-{% endblock %}
+{%endblock%}

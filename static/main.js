@@ -25,21 +25,14 @@ if ('serviceWorker' in navigator) {
   
 getActivty();
 
-/*async function addStar(){
+/*async function addStar(star){
 try{
-const 
-const response = await fetch('star/',{method:'POST',body:''});
+id = star.id
+const response = await fetch('star',{method:'POST',body:{'id':id,'csrfmiddlewaretoken':}});
 if(!response.ok) throw response.statusText;
   }catch(error){
     console.log(`Fetch failed : ${error}`);
   }
 }
 
-async function addComment(){
-  try{
-
-  }catch(error){
-    
-  }
-}
 */
