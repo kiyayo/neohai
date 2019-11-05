@@ -33,7 +33,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
            form.save()
-           redirect('login')
+           redirect('main:login')
         else:
             print(form.errors)
     else:
