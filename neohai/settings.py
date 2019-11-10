@@ -33,7 +33,6 @@ ADMINS = [(os.getenv('ADMIN1_NAME'), os.getenv('ADMIN1_EMAIL'))]
 # Application definition
 
 INSTALLED_APPS = [
-    'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'neohai.wsgi.application'
 
-
+ASGI_APPLICATION = 'neohai.routing.application'
 
 
 DATABASES = {

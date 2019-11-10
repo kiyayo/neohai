@@ -7,6 +7,15 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='avatars', blank=True)
     description = models.TextField(max_length=255, blank=True,null=True)
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.UserProfile.save()
     
 def __str__(self):
     return self.user.username
