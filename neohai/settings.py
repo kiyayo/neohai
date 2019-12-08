@@ -77,6 +77,16 @@ WSGI_APPLICATION = 'neohai.wsgi.application'
 
 ASGI_APPLICATION = 'neohai.routing.application'
 
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND': 'asgi_rabbitmq.RabbitmqChannelLayer',
+        'ROUTING': 'neohai.routing.routes',
+        'CONFIG':{
+            'url': 'amqp://guest:guest@rabbitmq:5672/%2F',
+        },
+    },
+}
+
 
 DATABASES = {
     'default': {

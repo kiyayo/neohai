@@ -1,3 +1,5 @@
 .env
 /media/avatars/*
 !/media/avatars/.gitkeep
+__pycache__/
+*.py[cod]
